@@ -27,6 +27,7 @@ def get_access_token():
         raise Exception(f"Failed to obtain access token: {response.status_code} - {response.text}")
 
 # Function to make API requests
+
 def fetch_icd_codes(url, headers):
     response = requests.get(url, headers=headers, verify=True)
     if response.status_code == 200:
