@@ -24,6 +24,7 @@ BQ_AUDIT_TABLE = f"{BQ_PROJECT}.temp_dataset.audit_log"
 BQ_LOG_TABLE = f"{BQ_PROJECT}.temp_dataset.pipeline_logs"
 BQ_TEMP_PATH = f"{GCS_BUCKET}/temp/"  
 
+
 # MySQL Configuration
 MYSQL_CONFIG = {
     "url": "jdbc:mysql://34.46.237.35:3306/hospital_a_db?useSSL=false&allowPublicKeyRetrieval=true",
