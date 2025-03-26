@@ -7,7 +7,7 @@ spark = SparkSession.builder \
 
 # configure variables
 BUCKET_NAME = "healthcare-bucket-26032025"
-CPT_BUCKET_PATH = f"gs://{BUCKET_NAME}/landing/cptcodes/*.csv"
+CPT_BUCKET_PATH = f"gs://{BUCKET_NAME}/landing/cpt/*.csv"
 BQ_TABLE = "aasgcpproject.bronze_dataset.cpt_codes"
 TEMP_GCS_BUCKET = f"{BUCKET_NAME}/temp/"
 
