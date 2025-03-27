@@ -110,7 +110,19 @@ def get_latest_watermark(table_name):
     query = f"""
         SELECT MAX(load_timestamp) AS latest_timestamp
         FROM `{BQ_AUDIT_TABLE}`
-        WHERE tablename = '{table_name}' and data_source = "hospital_a_db"
+        WHERE tablename = '{table_name}' and src = "hospital_a_db"
+    """
+    query_job = bq_client.query(query)
+    result = query_job.result()
+    for row in result:
+        return row.latest_timestamp if row.latest_timestamp else "1900-01-01 00:00:00"
+    return "1900-01-01 00:00:00"
+##----------------------------------------
+def get_latest_watermark(table_name):
+    query = f"""
+        SELECT MAX(load_timestamp) AS latest_timestamp
+        FROM `{BQ_AUDIT_TABLE}`
+        WHERE tablename = '{table_name}'
     """
     query_job = bq_client.query(query)
     result = query_job.result()
